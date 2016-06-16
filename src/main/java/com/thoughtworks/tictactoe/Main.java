@@ -9,6 +9,8 @@ public class Main {
         PrintStream printStream = new PrintStream(System.out);
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         Board board = new Board(printStream);
-        new Game(printStream, bufferedReader, board).start();
+        Player playerX = new Player("X", bufferedReader);
+        Player playerO = new Player("O", bufferedReader);
+        new Game(printStream, bufferedReader, board, playerX, playerO).start();
     }
 }
