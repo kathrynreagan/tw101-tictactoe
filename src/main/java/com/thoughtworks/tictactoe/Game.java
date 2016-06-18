@@ -5,19 +5,14 @@ import java.io.PrintStream;
 
 public class Game {
     private PrintStream printStream;
-    private BufferedReader bufferedReader;
     private Board board;
-    private boolean playerXIsPlaying;
-    private boolean[] taken;
     private Player playerX;
     private Player playerO;
 
-    public Game(PrintStream printStream, BufferedReader bufferedReader, Board board, Player playerX, Player playerO) {
+    public Game(PrintStream printStream, Board board, Player playerX, Player playerO) {
         this.printStream = printStream;
-        this.bufferedReader = bufferedReader;
         this.board = board;
-        playerXIsPlaying = true;
-        taken = new boolean[10];
+
         this.playerX = playerX;
         this.playerO = playerO;
     }

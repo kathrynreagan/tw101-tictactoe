@@ -33,6 +33,14 @@ public class BoardTest {
         verify(printStream).println("1|2|3\n" + "-----\n" + "X|5|6\n" + "-----\n" + "7|8|9");
     }
 
+    @Test
+    public void shouldRejectMoveWhenPlayerTriesToPlayInASquareThatHasBeenTaken() {
+        board.placeMarkInSquare("X", 2);
+        board.placeMarkInSquare("O", 2);
+
+        verify(printStream).println("Location already taken");
+    }
+
 
 
 }

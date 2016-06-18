@@ -11,6 +11,6 @@ public class Main {
         Board board = new Board(printStream);
         Player playerX = new Player("X", bufferedReader);
         Player playerO = new Player("O", bufferedReader);
-        new Game(printStream, bufferedReader, board, playerX, playerO).start();
+        new Game(printStream, board, playerX, playerO).start();
     }
 }

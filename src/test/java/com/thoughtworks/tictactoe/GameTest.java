@@ -27,7 +27,7 @@ public class GameTest {
         board = mock(Board.class);
         playerX = mock(Player.class);
         playerO = mock(Player.class);
-        game = new Game(printStream, bufferedReader, board, playerX, playerO);
+        game = new Game(printStream, board, playerX, playerO);
     }
 
     @Test
@@ -58,6 +58,8 @@ public class GameTest {
 
         verify(playerO).makeMove();
     }
+
+
 
 
 }

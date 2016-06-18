@@ -8,35 +8,29 @@ public class Board {
 
     public Board(PrintStream printStream) {
         this.printStream = printStream;
-        squares = new String[10];
-        for(int i = 0; i < 10; i++){
-            squares[i] = Integer.toString(i);
+        squares = new String[9];
+        for(int i = 0; i < 9; i++){
+            squares[i] = Integer.toString(i+1);
         }
     }
 
     public void printGameBoard() {
-        StringBuilder boardRepresentation = new StringBuilder("");
-
-        int row = 1;
-        while(row <= 3){
-            int leftSquare = 3*row - 2;
-            int i = leftSquare;
-            while(i < leftSquare+2){
-                boardRepresentation.append(squares[i]);
-                i++;
-                boardRepresentation.append("|");
-            }
-            boardRepresentation.append(squares[i]);
-            if(row==3) break;
-            boardRepresentation.append("\n");
-            row++;
-            boardRepresentation.append("-----\n");
-        }
-        printStream.println(boardRepresentation.toString());
+        String boardRepresentation = String.format
+                        ("%s|%s|%s\n" +
+                        "-----\n" +
+                        "%s|%s|%s\n" +
+                        "-----\n" +
+                        "%s|%s|%s", (Object[]) squares);
+        printStream.println(boardRepresentation);
     }
 
-    public void placeMarkInSquare(String player, int spaceToMark) {
-        squares[spaceToMark] = player;
+    public boolean placeMarkInSquare(String player, int spaceToMark) {
+        if(squares[spaceToMark-1] == "X" || squares[spaceToMark-1] == "O"){
+            printStream.println("Location already taken");
+            return false;
+        }
+        squares[spaceToMark-1] = player;
         printGameBoard();
+        return true;
     }
 }
